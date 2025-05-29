@@ -99,11 +99,8 @@ banned_words = ["FUCK", "STUPID", "FAT"]
 async def on_ready():
     print("hi")
     channel = bot.get_channel(CHANNEL_ID)
-bot.run(BOT_TOKEN)
-
-@bot.event
 async def on_message(message):
     for word in banned_words:
         if word in message.content.lower() or word in message.content.upper():
             await message.channel.send(f"{message.author.mention} Don't say bad words !!!!!!")
-
+bot.run(BOT_TOKEN)
