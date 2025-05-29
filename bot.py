@@ -85,7 +85,12 @@ async def seedbean(ctx):
 async def quit(ctx):
     sys.exit()
 
-
+banned_words = ["FUCK", "STUPID", "FAT"]
+@bot.event()
+async def on_message(message):
+    for word in banned_words:
+        if word in message.content.lower() or word in message.content.upper():
+            await message.channel.send(f"[message.author.mention] Don't say bad words !!!!!!")
     
 
 @bot.event
