@@ -92,5 +92,4 @@ async def quit(ctx):
 async def on_ready():
     print("hi")
     channel = bot.get_channel(CHANNEL_ID)
-    await channel.send("hi") 
 bot.run(BOT_TOKEN)
