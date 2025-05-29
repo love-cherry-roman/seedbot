@@ -29,7 +29,7 @@ async def hello(ctx):
 
 @bot.command()
 async def idplma(ctx):
-    audio = "idplma.mp3"
+    audio = "ID3"
     file = File(audio)
     await ctx.send(file = file)
 
