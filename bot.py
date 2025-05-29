@@ -28,6 +28,10 @@ async def hello(ctx):
     await ctx.send("Hi")
 
 @bot.command()
+async def hello(ctx):
+    await ctx.send(file=discord.File(r'idplma.mp3'))
+
+@bot.command()
 async def add(ctx, *arr):
     result = 0
     for i in arr:
