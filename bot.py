@@ -28,7 +28,7 @@ async def hello(ctx):
     await ctx.send("Hi")
 
 @bot.command()
-async def hello(ctx):
+async def idplma(ctx):
     await ctx.send(file=discord.File(r'idplma.mp3'))
 
 @bot.command()
