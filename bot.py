@@ -70,7 +70,7 @@ async def hit(ctx):
 
 @bot.command()
 async def seedbean(ctx):
-    image = seedbean.jpg
+    image = "seedbean.jpg"
     file = File(image)
     await ctx.send(file = file)
 
