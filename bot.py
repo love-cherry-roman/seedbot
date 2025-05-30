@@ -31,13 +31,7 @@ keep_alive()
 
 
 
-@bot.event()
-def time_module():
-    print("hi")
-    while True:
-        current_time = datetime.now().strftime("%H:%M")
-        if current_time == "21:12":
-            await ctx.send("Hihihihihihi")
+
 
 
 
@@ -45,8 +39,9 @@ def time_module():
 async def hello(ctx):
     await ctx.send("Hi")
 
-async def hello(ctx):
-    await ctx.send("Hi")
+@bot.command()
+async def help(ctx):
+    await ctx.send("List of all commands:")
 
 @bot.command()
 async def idplma(ctx):
@@ -111,6 +106,13 @@ async def quit(ctx):
 async def main():
     async with bot:
         await bot.start(BOT_TOKEN)
+
+async def time_module():
+    print("hi")
+    while True:
+        current_time = datetime.now().strftime("%H:%M")
+        async if current_time == "21:16":
+            await ctx.send("HiHIHIHI")
 
 asyncio.run(main())
 asyncio.run(time_module())
