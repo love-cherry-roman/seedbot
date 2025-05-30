@@ -1,5 +1,3 @@
-import discord
-from datetime import datetime
 from discord.ext import commands
 import discord
 from discord.ext.commands import Bot
@@ -12,10 +10,6 @@ import datetime
 from discord import app_commands
 import random
 import math 
-import os
-from discord.ext import commands
-from datetime import datetime, time, timedelta
-import asyncio
 
 BOT_TOKEN = "MTM1MzkwMTQzNDU5MjE3MDExOA.GwgvnH.kvo9vaGS3UYM_I2dd4h-CD-nVWBHYZPjikwfVY"
 CHANNEL_ID = 1353875799262105652
@@ -32,6 +26,12 @@ async def hello(ctx):
 
 async def hello(ctx):
     await ctx.send("Hi")
+
+@bot.command()
+async def idplma(ctx):
+    audio = "ID3"
+    file = File(audio)
+    await ctx.send(file = file)
 
 @bot.command()
 async def add(ctx, *arr):
@@ -76,7 +76,7 @@ async def hit(ctx):
 
 @bot.command()
 async def seedbean(ctx):
-    image = "better discord bot\seedbean.jpg"
+    image = "seedbean.jpg"
     file = File(image)
     await ctx.send(file = file)
 
@@ -85,12 +85,8 @@ async def seedbean(ctx):
 async def quit(ctx):
     sys.exit()
 
-
-    
-
 @bot.event
 async def on_ready():
     print("hi")
     channel = bot.get_channel(CHANNEL_ID)
-    await channel.send("hi") 
 bot.run(BOT_TOKEN)
