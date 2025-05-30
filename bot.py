@@ -37,7 +37,7 @@ def time_module():
     print("hi")
     while True:
         current_time = datetime.now().strftime("%H:%M")
-        if current_time == "21:00":
+        if current_time == "21:02":
             print("HIHIHIHHIHIHI")
             break
 
