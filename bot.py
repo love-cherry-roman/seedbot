@@ -29,19 +29,15 @@ keep_alive()
 
 
 
-banned_words = ["FUCK", "STUPID", "FAT", "fuck", "stupid", "fat"]
 
-channel_id = 1339429895889223773
 
+@bot.event()
 def time_module():
     print("hi")
     while True:
         current_time = datetime.now().strftime("%H:%M")
-        if current_time == "21:05":
-            print("HIHIHIHHIHIHI")
-            break
-
-time_module()
+        if current_time == "21:12":
+            await ctx.send("Hihihihihihi")
 
 
 
@@ -117,4 +113,4 @@ async def main():
         await bot.start(BOT_TOKEN)
 
 asyncio.run(main())
-
+asyncio.run(time_module())
