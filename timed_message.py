@@ -25,7 +25,7 @@ def time_module():
     print("time module in use")
     while True:
         current_time = datetime.now().strftime("%H:%M")
-        if current_time == "22:26": 
+        if current_time == "22:30": 
             print("time module ended")
 
 time_module()
