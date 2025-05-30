@@ -25,6 +25,17 @@ from keep_alive import keep_alive
 
 keep_alive()
 
+
+
+banned_words = ["FUCK", "STUPID", "FAT", "fuck", "stupid", "fat"]
+
+@bot.event
+async def on_message(message):
+    for word in banned_words:
+        if word in message.content.lower() or word in message.content.upper():
+            await message.channel.send(f"{message.author.mention} Don't say bad words !!!!!!")
+    
+
 @bot.command()
 async def hello(ctx):
     await ctx.send("Hi")
@@ -90,18 +101,10 @@ async def seedbean(ctx):
 async def quit(ctx):
     sys.exit()
 
-banned_words = ["FUCK", "STUPID", "FAT", "fuck", "stupid", "fat"]
 
-@bot.event
-async def on_message(message):
-    for word in banned_words:
-        if word in message.content.lower() or word in message.content.upper():
-            await message.channel.send(f"{message.author.mention} Don't say bad words !!!!!!")
-    
 
 async def main():
     async with bot:
-        await load()
         await bot.start(BOT_TOKEN)
 
 asyncio.run(main())
