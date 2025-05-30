@@ -25,7 +25,7 @@ def time_module():
     print("time module in use")
     while True:
         current_time = datetime.now().strftime("%H:%M")
-        if current_time == "21:52": 
+        if current_time == "22:30": 
             print("time module ended")
 
 time_module()
@@ -35,7 +35,7 @@ async def on_ready():
 
     print("bot:user ready == {0.user}".format(client))
     channel = client.get_channel(channel_id)
-    await channel.send("message")
+    await channel.send("it it worke")
     
 
 client.run(token)
