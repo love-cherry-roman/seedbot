@@ -31,30 +31,23 @@ keep_alive()
 
 banned_words = ["FUCK", "STUPID", "FAT", "fuck", "stupid", "fat"]
 
-WHEN = time(20, 45, 0)  # 6:00 PM
-channel_id = 1339429895889223773
+import asyncio
+import datetime as dt
 
-async def called_once_a_day():
-    await bot.wait_until_ready()  # Make sure your guild cache is ready so the channel can be found via get_channel
-    channel = bot.get_channel(channel_id) # Note: It's more efficient to do bot.get_guild(guild_id).get_channel(channel_id) as there's less looping involved, but just get_channel still works fine
-    await channel.send("hi(it worked)")
 
-async def background_task():
-    now = datetime.utcnow()
-    if now.time() > WHEN:  # Make sure loop doesn't start after {WHEN} as then it will send immediately the first time as negative seconds will make the sleep yield instantly
-        tomorrow = datetime.combine(now.date() + timedelta(days=1), time(0))
-        seconds = (tomorrow - now).total_seconds()  # Seconds until tomorrow (midnight)
-        await asyncio.sleep(seconds)   # Sleep until tomorrow and then the loop will start 
-    while True:
-        now = datetime.utcnow() # You can do now() or a specific timezone if that matters, but I'll leave it with utcnow
-        target_time = datetime.combine(now.date(), WHEN)  # 6:00 PM today (In UTC)
-        seconds_until_target = (target_time - now).total_seconds()
-        await asyncio.sleep(seconds_until_target)  # Sleep until we hit the target time
-        await called_once_a_day()  # Call the helper function that sends the message
-        tomorrow = datetime.combine(now.date() + timedelta(days=1), time(0))
-        seconds = (tomorrow - now).total_seconds()  # Seconds until tomorrow (midnight)
-        await asyncio.sleep(seconds)   # Sleep until tomorrow and then the loop will start a new iteration
+@tasks.loop(hours=24)
+async def msg1():
+    message_channel = bot.get_channel(1339429895889223773)
+    await message_channel.send("test 1")
 
+
+@msg1.before_loop
+async def before_msg1():
+    for _ in range(60*60*24):  # loop the whole day
+        if dt.datetime.now().hour == 10+12:  # 24 hour format
+            print('It is time')
+            return
+        await asyncio.sleep(1)
 
 
 @bot.command()
