@@ -1,17 +1,32 @@
 import discord
 from datetime import datetime
+from discord.ext import commands
+import discord
+from discord.ext.commands import Bot
+import asyncio
+import time
+from discord import File
+import sys
+from discord.ext import tasks
+import datetime
+from discord import app_commands
+import random
+import math 
+import os
+from discord.ext import commands
+from datetime import datetime, time, timedelta
+import asyncio
 
-client = discord.Client()
+client = commands.Bot(command_prefix="/", intents=discord.Intents.all())
 token = "MTM1MzkwMTQzNDU5MjE3MDExOA.GwgvnH.kvo9vaGS3UYM_I2dd4h-CD-nVWBHYZPjikwfVY" #enter your bot's token and it should be a string
-channel_id = 1339429895889223773
+channel_id = 1353875799262105652
 
 def time_module():
     print("time module in use")
     while True:
         current_time = datetime.now().strftime("%H:%M")
-        if current_time == "21:39": 
+        if current_time == "21:52": 
             print("time module ended")
-            break
 
 time_module()
 
