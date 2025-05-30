@@ -35,9 +35,9 @@ channel_id = 1339429895889223773
 
 def time_module():
     print("hi")
-    current_time = datetime.now().strftime("%H:%M")
-    while True:created
-        if current_time == "20:59":
+    while True:
+        current_time = datetime.now().strftime("%H:%M")
+        if current_time == "21:00":
             print("HIHIHIHHIHIHI")
             break
 
