@@ -18,7 +18,7 @@ from datetime import datetime, time, timedelta
 import asyncio
 
 client = commands.Bot(command_prefix="/", intents=discord.Intents.all())
-token = "MTM1MzkwMTQzNDU5MjE3MDExOA.GwgvnH.kvo9vaGS3UYM_I2dd4h-CD-nVWBHYZPjikwfVY" #enter your bot's token and it should be a string
+token = "MTM1MzkwMTQzNDU5MjE3MDExOA.GaRnHh.7nlYLHQ9kjGS_9G_per3WFds3khYRJsLmsWxyk" #enter your bot's token and it should be a string
 channel_id = 1353875799262105652
 
 def time_module():
