@@ -37,7 +37,7 @@ def time_module():
     print("hi")
     while True:created
         current_time = datetime.now().strftime("%H:%M")#hour %H min %M sec %S am:pm %p 
-        if current_time == "20:51": # enter the time you wish 
+        if current_time == "20:54": # enter the time you wish 
             print("HIHIHIHHIHIHI")
             break
 
