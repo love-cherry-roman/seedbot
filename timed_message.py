@@ -9,7 +9,7 @@ def time_module():
     print("time module in use")
     while True:
         current_time = datetime.now().strftime("%H:%M")
-        if current_time == "21:35": 
+        if current_time == "21:39": 
             print("time module ended")
             break
 
