@@ -112,7 +112,7 @@ async def time_module():
     while True:
         current_time = datetime.now().strftime("%H:%M")
         if current_time == "21:25":
-    await ctx.send("HiHIHIHI")
+            ctx.send("HiHIHIHI")
 
 asyncio.run(main())
 asyncio.run(time_module())
