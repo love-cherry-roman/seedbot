@@ -27,14 +27,6 @@ from keep_alive import keep_alive
 
 keep_alive()
 
-
-
-
-
-
-
-
-
 @bot.command()
 async def hello(ctx):
     await ctx.send("Hi")
@@ -107,12 +99,5 @@ async def main():
     async with bot:
         await bot.start(BOT_TOKEN)
 
-async def time_module():
-    print("hi")
-    while True:
-        current_time = datetime.now().strftime("%H:%M")
-        if current_time == "21:25":
-            ctx.send("HiHIHIHI")
 
 asyncio.run(main())
-asyncio.run(time_module())
