@@ -31,23 +31,18 @@ keep_alive()
 
 banned_words = ["FUCK", "STUPID", "FAT", "fuck", "stupid", "fat"]
 
-import asyncio
-import datetime as dt
+channel_id = 1339429895889223773
 
+def time_module():
+    print("hi")
+    while True:created
+        current_time = datetime.now().strftime("%H:%M")#hour %H min %M sec %S am:pm %p 
+        if current_time == "20:51": # enter the time you wish 
+            print("HIHIHIHHIHIHI")
+            break
 
-@tasks.loop(hours=24)
-async def msg1():
-    message_channel = bot.get_channel(1339429895889223773)
-    await message_channel.send("test 1")
+time_module()
 
-
-@msg1.before_loop
-async def before_msg1():
-    for _ in range(60*60*24):  # loop the whole day
-        if dt.datetime.now().hour == 10+12:  # 24 hour format
-            print('It is time')
-            return
-        await asyncio.sleep(1)
 
 
 @bot.command()
