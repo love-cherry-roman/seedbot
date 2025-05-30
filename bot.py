@@ -11,7 +11,7 @@ from discord import app_commands
 import random
 import math 
 
-BOT_TOKEN = "MTM1MzkwMTQzNDU5MjE3MDExOA.GwgvnH.kvo9vaGS3UYM_I2dd4h-CD-nVWBHYZPjikwfVY"
+BOT_TOKEN = "MTM1MzkwMTQzNDU5MjE3MDExOA.GaRnHh.7nlYLHQ9kjGS_9G_per3WFds3khYRJsLmsWxyk"
 CHANNEL_ID = 1353875799262105652
 
 bot = commands.Bot(command_prefix="/", intents=discord.Intents.all())
