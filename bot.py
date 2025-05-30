@@ -1,3 +1,5 @@
+import discord
+from datetime import datetime
 from discord.ext import commands
 import discord
 from discord.ext.commands import Bot
@@ -15,9 +17,6 @@ from discord.ext import commands
 from datetime import datetime, time, timedelta
 import asyncio
 
-
-
-
 BOT_TOKEN = "MTM1MzkwMTQzNDU5MjE3MDExOA.GwgvnH.kvo9vaGS3UYM_I2dd4h-CD-nVWBHYZPjikwfVY"
 CHANNEL_ID = 1353875799262105652
 
@@ -31,15 +30,8 @@ keep_alive()
 async def hello(ctx):
     await ctx.send("Hi")
 
-@bot.command()
-async def help(ctx):
-    await ctx.send("List of all commands:")
-
-@bot.command()
-async def idplma(ctx):
-    audio = "ID3"
-    file = File(audio)
-    await ctx.send(file = file)
+async def hello(ctx):
+    await ctx.send("Hi")
 
 @bot.command()
 async def add(ctx, *arr):
@@ -84,7 +76,7 @@ async def hit(ctx):
 
 @bot.command()
 async def seedbean(ctx):
-    image = "seedbean.jpg"
+    image = "better discord bot\seedbean.jpg"
     file = File(image)
     await ctx.send(file = file)
 
@@ -94,10 +86,11 @@ async def quit(ctx):
     sys.exit()
 
 
+    
 
-async def main():
-    async with bot:
-        await bot.start(BOT_TOKEN)
-
-
-asyncio.run(main())
+@bot.event
+async def on_ready():
+    print("hi")
+    channel = bot.get_channel(CHANNEL_ID)
+    await channel.send("hi") 
+bot.run(BOT_TOKEN)
