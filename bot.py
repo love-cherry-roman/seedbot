@@ -42,10 +42,8 @@ async def add(ctx, *arr):
     await ctx.send(f"Result: {result}")
 
 @bot.command()
-async def subtract(ctx, *arr):
-    result = 0
-    for i in arr:
-        result -= int(i)
+async def subtract(ctx, x, y):
+    result = x-y
 
     await ctx.send(f"Result: {result}")
 
