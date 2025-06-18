@@ -10,6 +10,7 @@ import datetime
 from discord import app_commands
 import random
 import math 
+import numexpr
 
 BOT_TOKEN = "MTM1MzkwMTQzNDU5MjE3MDExOA.GaRnHh.7nlYLHQ9kjGS_9G_per3WFds3khYRJsLmsWxyk"
 CHANNEL_ID = 1353875799262105652
@@ -33,36 +34,15 @@ async def idplma(ctx):
     file = File(audio)
     await ctx.send(file = file)
 
-@bot.command()
-async def add(ctx, *arr):
-    result = 0
-    for i in arr:
-        result += int(i)
+@bot.command(aliases=["calc", "solve"])
+async def calculate(ctx, *, expression: str):
+    try:
+        answer = numexpr.evaluate(expression)
 
-    await ctx.send(f"Result: {result}")
+        await ctx.senf(f"{expression} = {answer}")
+    except:
+        await ctx.send("your stupid problem is wrong")
 
-@bot.command()
-async def subtract(ctx, *arrs):
-    result = arr[0]
-    for i in arrs:
-        result -= arrs(i+1)
-        
-
-    await ctx.send(f"Result: {result}")
-
-@bot.command()
-async def multiply(ctx, *arr):
-    result = 1
-    for i in arr:
-        result *= int(i)
-    await ctx.send(f"Result: {result}")
-
-@bot.command()
-async def divide(ctx, *arr):
-    result = 1
-    for i in arr:
-        result /= int(i)
-    await ctx.send(f"Result: {result}")
 
 
 @bot.command()
