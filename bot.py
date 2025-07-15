@@ -255,3 +255,4 @@ async def on_ready():
 
 bot.run(BOT_TOKEN) #!important
 #get it because it looks like css but it isnt
+#am i funny
