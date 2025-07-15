@@ -3,6 +3,7 @@ import discord
 from discord.ext.commands import Bot
 import asyncio
 import time
+import threading
 import os
 from discord import File
 import sys
@@ -20,7 +21,7 @@ import json
 
 
 #tokens for discord
-BOT_TOKEN = "MTM1MzkwMTQzNDU5MjE3MDExOA.GaRnHh.7nlYLHQ9kjGS_9G_per3WFds3khYRJsLmsWxyk"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = 1353875799262105652
 
 #bot pre-command
@@ -121,12 +122,30 @@ async def searchforsong(ctx, track_name):
 
 
 @bot.command()
+async def llama(ctx):
+    await ctx.send("Hawk TUAH ")
+    await ctx.send("https://nwyarns.com/cdn/shop/articles/Llama_1024x1024.png?v=1512170916")
+
+
+@bot.command()
+async def hawk(ctx):
+    await ctx.send("caw")
+    await ctx.send("https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Red-tailed_Hawk.jpg/250px-Red-tailed_Hawk.jpg")
+    await ctx.send("https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Red-tailed_Hawk.jpg/250px-Red-tailed_Hawk.jpg")
+
+
+@bot.command()
 async def searchforartist(ctx, artist_name):
     token = get_token()  
     result = search_for_artist(token, artist_name)
     artistid = result["id"]
     await ctx.send("http" + "s://open.spotify.com/artist/" + artistid)
 
+
+@bot.command()
+async def enlightenMe(ctx):
+    await ctx.send(os.getenv(str(random.randint(1, 34))))
+    
 
 @bot.command()
 async def toptracks(ctx, artist_name):
@@ -138,12 +157,18 @@ async def toptracks(ctx, artist_name):
         listthing = await ctx.send(str(f"{idx +1}. {song['name']}"))
 
 
+@bot.command()
+async def RandomSong(ctx):
+    await ctx.send(os.getenv(str(random.randint(41,97))))
+
+
 def get_songs_by_artist(token, artist_id):
     url = f"https://api.spotify.com/v1/artists/{artist_id}/top-tracks?"
     headers = get_auth_headers(token)
     result = get(url, headers=headers)
     json_result = json.loads(result.content)["tracks"]
     return json_result
+
 
 #testing stuff
 token= get_token()
@@ -162,11 +187,25 @@ async def hello(ctx):
 @bot.command()
 async def idplma(ctx):
     #i dont want to type the file name
-    audio = "ID3"
-    file = File(audio)
+    await ctx.send(file=discord.File(r'idplma.mp3'))
 
-    #It made me write it liek this idk why
-    await ctx.send(file = file)
+
+def clearafter15():
+    clear = lambda: os.system('cls')
+    clear()
+
+
+@bot.command()
+async def timer(ctx, a: int, b: int):
+    author = ctx.author.mention
+    string_var = " your timer is done"
+    t = time.sleep(a*60 + b)
+    await ctx.send(author + string_var)
+
+
+@bot.command()
+async def test(ctx, arg1, arg2):
+    await ctx.send(f'You passed {arg1} and {arg2}')
 
 
 @bot.command(aliases=["calc", "solve"])
