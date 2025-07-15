@@ -21,8 +21,9 @@ import json
 
 
 #tokens for discord
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHANNEL_ID = 1353875799262105652
+load_dotenv()
+bot_token = os.getenv("BOT_TOKEN")
+channel = os.getenv("CHANNEL_ID")
 
 #bot pre-command
 bot = commands.Bot(command_prefix="/", intents=discord.Intents.all())
@@ -251,8 +252,7 @@ async def quit(ctx):
 async def on_ready():
     #just making sure it works
     print("hi")
-    channel = bot.get_channel(CHANNEL_ID)
 
-bot.run(BOT_TOKEN) #!important
+bot.run(bot_token) #!important
 #get it because it looks like css but it isnt
 #am i funny
