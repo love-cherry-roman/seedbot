@@ -228,7 +228,14 @@ async def crack(ctx):
     msg_list_crack = ["oh yeah", "that gets me wired", "thats the good stuff", "yesss give me more"]
     await ctx.send(random.choice(msg_list_crack))
 
+@bot.command()
+async def diary(ctx):
+    #you alreayd know
+    await ctx.send("Dear diary, today i caught my mans chooping bare tings at dundas square, is he dumb?")
 
+@bot.command()
+async def canada(ctx):
+    await ctx.send("and if the business is true, that you left ur moms in the hood somebody go smoke that yute you don’t leave ur moms nowhere you have money and you left your mom there to ur sick to my stomach fam")
 @bot.command()
 async def hit(ctx):
     msg_list_hurt = ["ow", "ouch", "owie", "ow stop", "owwwwwW"]
