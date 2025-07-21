@@ -22,8 +22,8 @@ import json
 
 #tokens for discord
 load_dotenv()
-bot_token = os.getenv("BOT_TOKEN")
-channel = os.getenv("CHANNEL_ID")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHANNEL_ID = 1353875799262105652
 
 #bot pre-command
 bot = commands.Bot(command_prefix="/", intents=discord.Intents.all())
@@ -127,6 +127,9 @@ async def llama(ctx):
     await ctx.send("Hawk TUAH ")
     await ctx.send("https://nwyarns.com/cdn/shop/articles/Llama_1024x1024.png?v=1512170916")
 
+@bot.command()
+async def more_birds(ctx):
+    await ctx.send("https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Red-tailed_Hawk.jpg/250px-Red-tailed_Hawk.jpg")
 
 @bot.command()
 async def hawk(ctx):
@@ -228,14 +231,7 @@ async def crack(ctx):
     msg_list_crack = ["oh yeah", "that gets me wired", "thats the good stuff", "yesss give me more"]
     await ctx.send(random.choice(msg_list_crack))
 
-@bot.command()
-async def diary(ctx):
-    #you alreayd know
-    await ctx.send("Dear diary, today i caught my mans chooping bare tings at dundas square, is he dumb?")
 
-@bot.command()
-async def canada(ctx):
-    await ctx.send("and if the business is true, that you left ur moms in the hood somebody go smoke that yute you don’t leave ur moms nowhere you have money and you left your mom there to ur sick to my stomach fam")
 @bot.command()
 async def hit(ctx):
     msg_list_hurt = ["ow", "ouch", "owie", "ow stop", "owwwwwW"]
@@ -259,7 +255,7 @@ async def quit(ctx):
 async def on_ready():
     #just making sure it works
     print("hi")
+    channel = bot.get_channel(CHANNEL_ID)
 
-bot.run(bot_token) #!important
+bot.run(BOT_TOKEN) #!important
 #get it because it looks like css but it isnt
-#am i funny
