@@ -129,7 +129,8 @@ async def llama(ctx):
 
 @bot.command()
 async def more_birds(ctx):
-    await ctx.send("https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Red-tailed_Hawk.jpg/250px-Red-tailed_Hawk.jpg")
+    for i in range(100):
+        await ctx.send("https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Red-tailed_Hawk.jpg/250px-Red-tailed_Hawk.jpg")
 
 @bot.command()
 async def hawk(ctx):
